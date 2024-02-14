@@ -5,7 +5,7 @@ import todoSlice from "./slice/todoSlice";
 import healthCheckSlice from "./slice/healthCheckSlice";
 
 const rootReducer = combineReducers({
-    todo: todoSlice,
+    todos: todoSlice,
     healthCheck: healthCheckSlice,
 });
 

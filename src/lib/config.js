@@ -8,6 +8,8 @@ const DEFAULT_SCOPE = 'TODOS/POST TODOS/GET TODOS/GET/{todo_id} TODOS/PUT/{todo_
 
 const HEALTH_CHECK_URL = `${API_URL}/health`;
 const API_GET_TODOS_URL = `${API_URL}/todos`;
+const API_GET_DONE_TODOS_URL = `${API_URL}/todos/done`;
+const API_GET_UNDONE_TODOS_URL = `${API_URL}/todos/undone`;
 const API_GET_TODO_ID_URL = `${API_URL}/todos/:id`;
 const API_POST_TODO_URL = `${API_URL}/todos`;
 const API_PUT_TODO_ID_URL = `${API_URL}/todos/:id`;
@@ -20,6 +22,8 @@ export {
     HEALTH_CHECK_URL,
     DEFAULT_SCOPE,
     API_GET_TODOS_URL,
+    API_GET_DONE_TODOS_URL,
+    API_GET_UNDONE_TODOS_URL,
     API_GET_TODO_ID_URL,
     API_POST_TODO_URL,
     API_PUT_TODO_ID_URL,

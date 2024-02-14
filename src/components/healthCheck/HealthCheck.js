@@ -19,13 +19,13 @@ const HealthCheck = () => {
             try {
                 const response = await axios.get(HEALTH_CHECK_URL);
 
-                console.log(response);
-
                 if (response.status === 200 && response.statusText === 'OK') {
                     result = true;
                 }
             } catch (error) {
                 console.error('Error checking server health:', error);
+
+                alert("Server error");
             } finally {
                 dispatch(healthCheckActions.setHealthCheck(result));
             }

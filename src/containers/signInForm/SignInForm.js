@@ -41,6 +41,11 @@ const signIn = async (body) => {
             return;
         }
 
+        if (!response.data.access_token || !response.data.token_type) {
+            alert("Sign in failed");
+            return;
+        }
+
         return {
             token: response.data.access_token,
             token_type: response.data.token_type,
@@ -88,7 +93,8 @@ const SignInForm = () => {
         const response = await signIn(body);
 
         if (response) {
-            localStorage.setItem(TOKEN_KEY, response.token);
+            const token = `${response.token_type} ${response.token}`;
+            localStorage.setItem(TOKEN_KEY, token);
 
             navigate(DEFAULT_URL, {replace: true});
         }
