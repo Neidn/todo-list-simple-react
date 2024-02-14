@@ -1,14 +1,37 @@
-import {useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {useReducer} from "react";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 import SignInInput from "../../components/signInInput/SignInInput";
 import SignInButton from "../../components/signinButton/SignInButton";
-import {API_GET_SIGN_IN_URL, DEFAULT_SCOPE, TOKEN_KEY} from "../../config";
+import {API_POST_SIGN_IN_URL, DEFAULT_SCOPE, TOKEN_KEY} from "../../config";
+import SignInComment from "../../components/signInComment/SignInComment";
+
+const initialState = {
+    email: "",
+    password: "",
+}
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "EMAIL":
+            return {
+                ...state,
+                email: action.payload,
+            }
+        case "PASSWORD":
+            return {
+                ...state,
+                password: action.payload,
+            }
+        default:
+            return state;
+    }
+}
 
 const signIn = async (body) => {
     try {
-        const response = await axios.postForm(API_GET_SIGN_IN_URL, body);
+        const response = await axios.postForm(API_POST_SIGN_IN_URL, body);
 
         if (response.status !== 201) {
             alert("Sign in failed");
@@ -31,22 +54,21 @@ const signIn = async (body) => {
 const SignInForm = () => {
     const navigate = useNavigate();
 
-    const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
+    const [state, dispatch] = useReducer(reducer, initialState, () => initialState);
 
     const onEmailHandler = (event) => {
-        setEmail(event.currentTarget.value);
+        dispatch({type: "EMAIL", payload: event.currentTarget.value});
     }
     const onPasswordHandler = (event) => {
-        setPassword(event.currentTarget.value);
+        dispatch({type: "PASSWORD", payload: event.currentTarget.value});
     }
 
     const onSubmitHandler = async (event) => {
         event.preventDefault();
 
         const body = {
-            username: Email,
-            password: Password,
+            username: state.email,
+            password: state.password,
             scope: DEFAULT_SCOPE,
         }
 
@@ -91,14 +113,11 @@ const SignInForm = () => {
                                 text={"Sign in"}
                                 onClick={onSubmitHandler}
                             />
-
-                            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Don’t have an account yet?&nbsp;
-                                <Link to={"/signup"}
-                                      className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                                    Sign up
-                                </Link>
-                            </p>
+                            <SignInComment
+                                comment={"Don’t have an account yet?"}
+                                to={"/signup"}>
+                                Sign up
+                            </SignInComment>
                         </form>
                     </div>
                 </div>

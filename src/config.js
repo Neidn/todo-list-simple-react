@@ -13,8 +13,8 @@ const API_POST_TODO_URL = `${API_URL}/todos`;
 const API_PUT_TODO_ID_URL = `${API_URL}/todos/:id`;
 const API_DELETE_TODO_ID_URL = `${API_URL}/todos/:id`;
 
-const API_GET_SIGN_UP_URL = `${API_URL}/auth/user`;
-const API_GET_SIGN_IN_URL = `${API_SERVER}/token`;
+const API_POST_SIGN_UP_URL = `${API_URL}/user`;
+const API_POST_SIGN_IN_URL = `${API_SERVER}/token`;
 
 
 const ERROR_500_URL = '/error500';
@@ -33,8 +33,8 @@ export {
     API_POST_TODO_URL,
     API_PUT_TODO_ID_URL,
     API_DELETE_TODO_ID_URL,
-    API_GET_SIGN_UP_URL,
-    API_GET_SIGN_IN_URL,
+    API_POST_SIGN_UP_URL,
+    API_POST_SIGN_IN_URL,
     TOKEN_KEY,
 }
 

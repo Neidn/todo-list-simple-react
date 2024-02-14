@@ -1,8 +1,9 @@
 import {Route, Routes, BrowserRouter} from "react-router-dom";
 
 import HomePage from "../pages/home/HomePage";
-import SignInPage from "../pages/signin/SignInPage";
 import Logout from "../components/logout/Logout";
+import SignInPage from "../pages/signin/SignInPage";
+import SignUpPage from "../pages/signUp/SignUpPage";
 
 
 import Error404 from "../pages/error/Error404";
@@ -22,6 +23,11 @@ const Main = (props) => {
                         path={"/signin"}
                         exact
                         element={<SignInPage {...props} />}
+                    />
+                    <Route
+                        path={"/signup"}
+                        exact
+                        element={<SignUpPage {...props} />}
                     />
                     <Route
                         path={"/logout"}
