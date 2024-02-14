@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {MdOutlineDashboard} from "react-icons/md";
 import {IoIosLogIn, IoIosLogOut} from "react-icons/io";
-import {useNavigate} from "react-router-dom";
 
 
-import {TOKEN_KEY} from "../../config";
+import {TOKEN_KEY} from "../../lib/config_key";
+import {DEFAULT_URL, SIGN_OUT_URL, SIGN_IN_URL} from "../../lib/config_url";
 
 import SideBarItem from "../../components/sideBarItem/SideBarItem";
 
@@ -12,8 +12,6 @@ const SideBar = () => {
     const iconClassNames = "w-[18px] h-[18px] mr-4";
 
     const token = localStorage.getItem(TOKEN_KEY);
-    const navigate = useNavigate();
-
 
     return (
         <nav
@@ -28,14 +26,14 @@ const SideBar = () => {
                     token ?
                         <ul className="space-y-3 my-10 flex-1">
                             <SideBarItem
-                                to={"/"}
-                                selected={window.location.pathname === "/"}>
+                                to={DEFAULT_URL}
+                                selected={window.location.pathname === DEFAULT_URL}>
                                 <MdOutlineDashboard className={iconClassNames}/>
                                 <span>Home</span>
                             </SideBarItem>
                             <SideBarItem
-                                to={"/logout"}
-                                selected={window.location.pathname === "/logout"}>
+                                to={SIGN_OUT_URL}
+                                selected={window.location.pathname === SIGN_OUT_URL}>
                                 <IoIosLogOut className={iconClassNames}/>
                                 <span>Logout</span>
                             </SideBarItem>
@@ -43,8 +41,8 @@ const SideBar = () => {
                         :
                         <ul className="space-y-3 my-10 flex-1">
                             <SideBarItem
-                                to={"/signin"}
-                                selected={window.location.pathname === "/signin"}>
+                                to={SIGN_IN_URL}
+                                selected={window.location.pathname === SIGN_IN_URL}>
                                 <IoIosLogIn className={iconClassNames}/>
                                 <span>SignIn</span>
                             </SideBarItem>
@@ -54,7 +52,7 @@ const SideBar = () => {
                     <img src='https://readymadeui.com/profile.webp' className="w-9 h-9 rounded-full border-white"
                          alt={"creator"}/>
                     <div className="ml-4">
-                        <p className="text-sm text-[#333]">YeongKi Seo</p>
+                        <p className="text-sm text-[#333]">Code By YeongKi Seo</p>
                     </div>
                 </div>
             </div>

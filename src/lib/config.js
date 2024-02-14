@@ -13,29 +13,17 @@ const API_POST_TODO_URL = `${API_URL}/todos`;
 const API_PUT_TODO_ID_URL = `${API_URL}/todos/:id`;
 const API_DELETE_TODO_ID_URL = `${API_URL}/todos/:id`;
 
-const API_POST_SIGN_UP_URL = `${API_URL}/user`;
-const API_POST_SIGN_IN_URL = `${API_SERVER}/token`;
-
-
-const ERROR_500_URL = '/error500';
-const DEFAULT_URL = '/';
-
-const TOKEN_KEY = 'token';
 
 export {
     API_URL,
+    API_SERVER,
     HEALTH_CHECK_URL,
-    ERROR_500_URL,
-    DEFAULT_URL,
     DEFAULT_SCOPE,
     API_GET_TODOS_URL,
     API_GET_TODO_ID_URL,
     API_POST_TODO_URL,
     API_PUT_TODO_ID_URL,
     API_DELETE_TODO_ID_URL,
-    API_POST_SIGN_UP_URL,
-    API_POST_SIGN_IN_URL,
-    TOKEN_KEY,
 }
 
 

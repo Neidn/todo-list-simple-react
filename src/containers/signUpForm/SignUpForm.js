@@ -5,7 +5,8 @@ import axios from "axios";
 import SignInInput from "../../components/signInInput/SignInInput";
 import SignInButton from "../../components/signinButton/SignInButton";
 import SignInComment from "../../components/signInComment/SignInComment";
-import {API_POST_SIGN_UP_URL} from "../../config";
+import {API_POST_SIGN_UP_URL} from "../../lib/config_user";
+import {DEFAULT_URL} from "../../lib/config_url";
 
 const initialState = {
     username: "",
@@ -108,7 +109,7 @@ const SignUpForm = () => {
         const response = await signUp(body);
         if (response) {
 
-            navigate("/");
+            navigate(DEFAULT_URL, {replace: true});
         }
 
     }

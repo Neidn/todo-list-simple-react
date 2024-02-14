@@ -4,7 +4,10 @@ import axios from "axios";
 
 import SignInInput from "../../components/signInInput/SignInInput";
 import SignInButton from "../../components/signinButton/SignInButton";
-import {API_POST_SIGN_IN_URL, DEFAULT_SCOPE, TOKEN_KEY} from "../../config";
+import {DEFAULT_SCOPE} from "../../lib/config";
+import {TOKEN_KEY} from "../../lib/config_key";
+import {API_POST_SIGN_IN_URL} from "../../lib/config_user";
+import {DEFAULT_URL} from "../../lib/config_url";
 import SignInComment from "../../components/signInComment/SignInComment";
 
 const initialState = {
@@ -54,13 +57,23 @@ const signIn = async (body) => {
 const SignInForm = () => {
     const navigate = useNavigate();
 
-    const [state, dispatch] = useReducer(reducer, initialState, () => initialState);
+    const [state, dispatch] = useReducer(
+        reducer,
+        initialState,
+        () => initialState
+    );
 
     const onEmailHandler = (event) => {
-        dispatch({type: "EMAIL", payload: event.currentTarget.value});
+        dispatch({
+            type: "EMAIL",
+            payload: event.currentTarget.value
+        });
     }
     const onPasswordHandler = (event) => {
-        dispatch({type: "PASSWORD", payload: event.currentTarget.value});
+        dispatch({
+            type: "PASSWORD",
+            payload: event.currentTarget.value
+        });
     }
 
     const onSubmitHandler = async (event) => {
@@ -77,7 +90,7 @@ const SignInForm = () => {
         if (response) {
             localStorage.setItem(TOKEN_KEY, response.token);
 
-            navigate("/");
+            navigate(DEFAULT_URL, {replace: true});
         }
 
     }

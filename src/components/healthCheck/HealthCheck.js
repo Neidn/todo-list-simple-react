@@ -4,10 +4,9 @@ import {useNavigate} from 'react-router-dom';
 
 import {healthCheckActions} from "../../store/slice/healthCheckSlice";
 
-import {HEALTH_CHECK_URL, ERROR_500_URL, DEFAULT_URL} from "../../config";
+import {HEALTH_CHECK_URL} from "../../lib/config";
+import {ERROR_500_URL, DEFAULT_URL} from "../../lib/config_url";
 import axios from "axios";
-
-
 
 
 const HealthCheck = () => {
@@ -35,9 +34,9 @@ const HealthCheck = () => {
 
         checkServerHealth().then((healthCheck) => {
             if (!healthCheck) {
-                navigate(ERROR_500_URL);
+                navigate(ERROR_500_URL, {replace: true});
             } else {
-                navigate(DEFAULT_URL);
+                navigate(DEFAULT_URL, {replace: true});
             }
         });
     }, [dispatch, navigate]);
