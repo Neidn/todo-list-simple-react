@@ -6,11 +6,13 @@ const SideBarItem = ({to, children, selected = false}) => {
     const nonSelectedStyle = "text-sm flex items-center hover:text-[#007bff] hover:border-r-[5px] border-[#077bff] hover:bg-gray-100 px-8 py-4 transition-all";
 
     return (
-        <Link to={to}
-              className={selected ? selectedStyle : nonSelectedStyle}>
+        <li>
+            <Link to={to}
+                  className={selected ? selectedStyle : nonSelectedStyle}>
 
-            {children}
-        </Link>
+                {children}
+            </Link>
+        </li>
     );
 }
 

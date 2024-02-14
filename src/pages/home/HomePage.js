@@ -9,16 +9,6 @@ import {TOKEN_KEY} from "../../config";
 const HomePage = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const token = localStorage.getItem(TOKEN_KEY);
-
-        console.log(token);
-
-        if (!token) {
-            navigate("/login");
-        }
-    }, []);
-
     return (
         <>
             <Page>
