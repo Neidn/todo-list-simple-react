@@ -1,5 +1,5 @@
 
-import SignInForm from "../../containers/signInForm/SignInForm";
+import SignInForm from "../../components/signInForm/SignInForm";
 
 const SignInPage = () => {
     return (

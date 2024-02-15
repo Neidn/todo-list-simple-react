@@ -2,13 +2,13 @@ import {useReducer} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
-import SignInInput from "../../components/signInInput/SignInInput";
-import SignInButton from "../../components/signinButton/SignInButton";
+import SignInInput from "../signInInput/SignInInput";
+import SignInButton from "../signinButton/SignInButton";
 import {DEFAULT_SCOPE} from "../../lib/config";
 import {TOKEN_KEY} from "../../lib/config_key";
 import {API_POST_SIGN_IN_URL} from "../../lib/config_user";
 import {DEFAULT_URL} from "../../lib/config_url";
-import SignInComment from "../../components/signInComment/SignInComment";
+import SignInComment from "../signInComment/SignInComment";
 
 const initialState = {
     email: "",

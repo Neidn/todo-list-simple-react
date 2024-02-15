@@ -2,9 +2,9 @@ import {useReducer} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
-import SignInInput from "../../components/signInInput/SignInInput";
-import SignInButton from "../../components/signinButton/SignInButton";
-import SignInComment from "../../components/signInComment/SignInComment";
+import SignInInput from "../signInInput/SignInInput";
+import SignInButton from "../signinButton/SignInButton";
+import SignInComment from "../signInComment/SignInComment";
 import {API_POST_SIGN_UP_URL} from "../../lib/config_user";
 import {DEFAULT_URL} from "../../lib/config_url";
 

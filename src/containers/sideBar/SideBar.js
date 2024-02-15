@@ -35,7 +35,7 @@ const SideBar = () => {
                                 to={SIGN_OUT_URL}
                                 selected={window.location.pathname === SIGN_OUT_URL}>
                                 <IoIosLogOut className={iconClassNames}/>
-                                <span>Logout</span>
+                                <span>Sign out</span>
                             </SideBarItem>
                         </ul>
                         :
