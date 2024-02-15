@@ -15,7 +15,7 @@ const SideBar = () => {
 
     return (
         <nav
-            className="bg-white shadow-xl h-screen min-w-[250px] py-6 font-[sans-serif] overflow-auto">
+            className="bg-white shadow-xl h-screen min-w-[250px] py-6 font-[sans-serif] overflow-auto sticky top-0">
             <div className="relative flex flex-col h-full">
                 <div className="text-center">
                     <h1 className={"text-4xl font-bold text-blue-700"}>

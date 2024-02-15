@@ -5,7 +5,7 @@ import axios from "axios";
 import {todoActions} from "../../store/slice/todoSlice";
 import {API_GET_UNDONE_TODOS_URL} from "../../lib/config";
 import {TOKEN_KEY} from "../../lib/config_key";
-import TodoCard from "../todoCard/TodoCard";
+import TodoCard from "../../containers/todoCard/TodoCard";
 
 const TodoList = () => {
     const dispatch = useDispatch();
@@ -45,24 +45,50 @@ const TodoList = () => {
         });
 
     }, [dispatch]);
-
-
     return (
-        <>
-            <ul>
-                {todos.map((todo, index) => (
-                    <li key={index}>
-                        <TodoCard
-                            id={todo.id}
-                            title={todo.title}
-                            content={todo.content}
-                        />
-                    </li>
-                ))}
-            </ul>
-
-        </>
+        <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}>
+            {todos.map((todo, index) => (
+                <TodoCard
+                    key={index}
+                    id={todo.id}
+                    title={todo.title}
+                    content={todo.content}
+                />
+            ))}
+            {todos.map((todo, index) => (
+                <TodoCard
+                    key={index}
+                    id={todo.id}
+                    title={todo.title}
+                    content={todo.content}
+                />
+            ))}
+            {todos.map((todo, index) => (
+                <TodoCard
+                    key={index}
+                    id={todo.id}
+                    title={todo.title}
+                    content={todo.content}
+                />
+            ))}
+            {todos.map((todo, index) => (
+                <TodoCard
+                    key={index}
+                    id={todo.id}
+                    title={todo.title}
+                    content={todo.content}
+                />
+            ))}
+            {todos.map((todo, index) => (
+                <TodoCard
+                    key={index}
+                    id={todo.id}
+                    title={todo.title}
+                    content={todo.content}
+                />
+            ))}
+        </div>
     );
-};
+}
 
 export default TodoList;

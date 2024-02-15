@@ -1,14 +1,18 @@
 import React from "react";
 
-import TodoList from "../../components/todoList/TodoList";
 import Page from "../../containers/Page";
+import TodoList from "../../components/todoList/TodoList";
+import TodoAddForm from "../../containers/todoAddForm/TodoAddForm";
 
 const HomePage = () => {
 
     return (
         <>
             <Page>
-                <TodoList/>
+                <div className={"w-full"}>
+                    <TodoAddForm/>
+                    <TodoList/>
+                </div>
             </Page>
         </>
     );

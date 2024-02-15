@@ -11,7 +11,7 @@ import store from "./store";
 function App() {
     return (
         <Provider store={store}>
-            <div className={"h-screen bg-gray-200"}>
+            <div className={"min-h-dvh bg-gray-200"}>
                 <Main/>
             </div>
         </Provider>
