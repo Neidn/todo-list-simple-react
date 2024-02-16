@@ -15,6 +15,10 @@ const AuthRoute = ({element, auth}) => {
     return auth ? element : <Navigate replace to={SIGN_IN_URL}/>;
 }
 
+const SignInRoute = ({element, auth}) => {
+    return !auth ? element : <Navigate replace to={DEFAULT_URL}/>;
+}
+
 
 const Main = (props) => {
     const token = localStorage.getItem(TOKEN_KEY);
@@ -30,11 +34,11 @@ const Main = (props) => {
                     />
                     <Route
                         path={SIGN_IN_URL}
-                        element={<SignInPage {...props} />}
+                        element={<SignInRoute element={<SignInPage {...props}/>} auth={auth}/>}
                     />
                     <Route
                         path={SIGN_UP_URL}
-                        element={<SignUpPage {...props} />}
+                        element={<SignInRoute element={<SignUpPage {...props}/>} auth={auth}/>}
                     />
                     <Route
                         path={SIGN_OUT_URL}

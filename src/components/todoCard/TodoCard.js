@@ -17,8 +17,6 @@ const TodoCard = ({id, title, content, is_done}) => {
                     </div>
                     <TodoCardToggle
                         id={id}
-                        onChangeHandler={() => {
-                        }}
                         is_done={is_done}
                     />
                 </div>

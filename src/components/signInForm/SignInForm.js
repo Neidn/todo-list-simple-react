@@ -93,6 +93,8 @@ const SignInForm = () => {
         const response = await signIn(body);
 
         if (response) {
+            console.log('response', response);
+
             const token = `${response.token_type} ${response.token}`;
             localStorage.setItem(TOKEN_KEY, token);
 
